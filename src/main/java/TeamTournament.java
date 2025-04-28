@@ -13,7 +13,7 @@ public class TeamTournament extends Tournament implements Playable {
      * Registers a player
      * @param team the player being registered
      */
-    public void registerPlayer(List<Player> team) {
+    public void registerTeam(List<Player> team) {
         teams.add(team);
     }
 

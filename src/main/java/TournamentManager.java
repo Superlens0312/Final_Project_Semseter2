@@ -5,7 +5,7 @@ public class TournamentManager {
     private List<User> users;
     private List<Tournament> tournaments;
 
-    public TournamentManager(List<User> users, List<Tournament> tournaments) {
+    public TournamentManager() {
         this.users = new ArrayList<>();
         this.tournaments = new ArrayList<>();
     }
