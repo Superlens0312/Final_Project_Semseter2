@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class TournamentManager {
+    private List<User> users;
+    private List<Tournament> tournaments;
+
+    public TournamentManager(List<User> users, List<Tournament> tournaments) {
+        this.users = new ArrayList<>();
+        this.tournaments = new ArrayList<>();
+    }
+
+    /**
+     * Adds a user
+     * @param user the user that will be added
+     */
+    public void addUser(User user) {
+        users.add(user);
+    }
+
+    /**
+     * Adds a tournament
+     * @param tournament the tournament that will be added
+     */
+    public void addTournament(Tournament tournament) {
+        tournaments.add(tournament);
+    }
+
+    /**
+     * Lists all tournaments.
+     */
+    public void listTournaments() {
+        // TODO: Implement listing tournaments
+    }
+}

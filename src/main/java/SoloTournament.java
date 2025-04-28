@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class SoloTournament extends Tournament implements Playable {
+    private List<Player> participants;
+
+    public SoloTournament(String name) {
+        super(name);
+        this.participants = new ArrayList<>();
+    }
+
+    /**
+     * Registers a player
+     * @param player the player being registered
+     */
+    public void registerPlayer(Player player) {
+        participants.add(player);
+    }
+
+    /**
+     * Playes a match between two players
+     * @param p1 The first player
+     * @param p2 The second player
+     */
+    @Override
+    public void playMatch(Player p1, Player p2) {
+        //TODO: Implement match logic
+    }
+
+    @Override
+    public void displayInfo() {
+        System.out.println("Solo Tournament: " + name + "| Participants: " + participants.size());
+    }
+}
