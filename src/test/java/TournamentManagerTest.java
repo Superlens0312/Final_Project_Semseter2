@@ -1,12 +1,15 @@
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class TournamentManagerTest {
     @Test
     void testAddUser() {
         TournamentManager manager = new TournamentManager();
         Player player = new Player("TestPlayer", 0001,0);
         manager.addUser(player);
-        // TODO: Check if user added
+        assertEquals(1, manager.getUsers().size());
+        assertEquals("TestPlayer", manager.getUsers().get(0).getUsername());
     }
 
     @Test
@@ -14,6 +17,14 @@ public class TournamentManagerTest {
         TournamentManager manager = new TournamentManager();
         SoloTournament tournament = new SoloTournament("Solo Battle");
         manager.addTournament(tournament);
-        // TODO: Check if tournament added
+        assertEquals(1, manager.getTournaments().size());
+        assertEquals("Solo Battle", manager.getTournaments().get(0).name);
+    }
+
+    @Test
+    public void testListTournaments() {
+        TournamentManager manager = new TournamentManager();
+        manager.addTournament(new SoloTournament("Battle Royal"));
+        manager.listTournaments(); // Output only
     }
 }

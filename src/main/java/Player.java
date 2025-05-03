@@ -32,4 +32,5 @@ public class Player extends User implements Comparable<Player> {
     public int getScore() {
         return score;
     }
+
 }

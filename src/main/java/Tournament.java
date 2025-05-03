@@ -9,4 +9,8 @@ public abstract class Tournament {
      * Displays tournament info
      */
     public abstract void displayInfo();
+
+    public String getName() {
+        return name;
+    }
 }

@@ -36,4 +36,8 @@ public class SoloTournament extends Tournament implements Playable {
     public void displayInfo() {
         System.out.println("Solo Tournament: " + name + "| Participants: " + participants.size());
     }
+
+    public List<Player> getParticipants() {
+        return participants;
+    }
 }

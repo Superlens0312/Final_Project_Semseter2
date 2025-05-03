@@ -32,4 +32,8 @@ public class TeamTournament extends Tournament implements Playable {
     public void displayInfo() {
         System.out.println("Team Tournament: " + name + "| Teams: " + teams.size());
     }
+
+    public List<List<Player>> getTeams() {
+        return teams;
+    }
 }
