@@ -30,6 +30,16 @@ public class TournamentManager {
      * Lists all tournaments.
      */
     public void listTournaments() {
-        // TODO: Implement listing tournaments
+        for (Tournament t : tournaments) {
+            t.displayInfo();
+        }
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public List<Tournament> getTournaments() {
+        return tournaments;
     }
 }

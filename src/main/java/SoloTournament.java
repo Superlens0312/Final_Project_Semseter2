@@ -24,7 +24,12 @@ public class SoloTournament extends Tournament implements Playable {
      */
     @Override
     public void playMatch(Player p1, Player p2) {
-        //TODO: Implement match logic
+        int winner = (int) (Math.random() * 2);
+        if (winner == 0) {
+            p1.addScore(10);
+        } else {
+            p2.addScore(10);
+        }
     }
 
     @Override

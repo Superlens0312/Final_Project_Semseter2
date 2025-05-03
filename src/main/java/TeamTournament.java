@@ -24,7 +24,8 @@ public class TeamTournament extends Tournament implements Playable {
      */
     @Override
     public void playMatch(Player p1, Player p2) {
-        //TODO: Implement match logic
+        p1.addScore(5);
+        p2.addScore(5);
     }
 
     @Override

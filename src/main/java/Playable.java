@@ -6,5 +6,4 @@ public interface Playable {
      * @param p2 The second player
      */
     void playMatch(Player p1, Player p2);
-    //TODO
 }

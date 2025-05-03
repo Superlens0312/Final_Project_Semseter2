@@ -16,7 +16,7 @@ public class Player extends User implements Comparable<Player> {
 
     @Override
     public void displaystats() {
-        System.out.println("Player: " + username + ", score: " + score);
+        System.out.println("Player: " + username + " | score: " + score);
     }
 
     /**
@@ -31,9 +31,5 @@ public class Player extends User implements Comparable<Player> {
 
     public int getScore() {
         return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
     }
 }
