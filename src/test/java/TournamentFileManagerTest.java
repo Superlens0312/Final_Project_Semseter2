@@ -35,7 +35,7 @@ public class TournamentFileManagerTest {
         file.delete(); // cleanup
     }
     @Test
-    public void testLoadPlayersFromMissingFile() {
+    public void testLoadPlayers_FromMissingFile() {
         File f = new File("players.txt");
         f.delete(); // ensure it doesn't exist
         TournamnetFileManager tfm = new TournamnetFileManager();
@@ -44,7 +44,7 @@ public class TournamentFileManagerTest {
     }
 
     @Test
-    public void testLoadTournamentsDefault() {
+    public void testLoadTournaments_Default() {
         TournamnetFileManager tfm = new TournamnetFileManager();
         List<Tournament> tournaments = tfm.loadTournaments();
         assertTrue(tournaments.isEmpty()); // placeholder logic

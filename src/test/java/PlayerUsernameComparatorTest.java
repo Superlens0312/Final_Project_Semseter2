@@ -22,7 +22,7 @@ public class PlayerUsernameComparatorTest {
     }
 
     @Test
-    public void testComparatorEqualNames() {
+    public void testComparator_EqualNames() {
         Player p1 = new Player("Sam", 0001,0);
         Player p2 = new Player("Sam", 0002,0);
 
@@ -31,7 +31,7 @@ public class PlayerUsernameComparatorTest {
     }
 
     @Test
-    public void testComparatorCaseInsensitive() {
+    public void testComparator_CaseInsensitive() {
         Player p1 = new Player("alpha", 0001,0);
         Player p2 = new Player("Alpha", 0002,0);
 

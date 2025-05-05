@@ -18,7 +18,7 @@ public class OrganizerTest {
     }
 
     @Test
-    public void testDisplayStatsRunsWithoutError() {
+    public void testDisplayStats_RunsWithoutError() {
         Organizer organizer = new Organizer("Marie", 0007);
         assertDoesNotThrow(organizer::displaystats);
     }

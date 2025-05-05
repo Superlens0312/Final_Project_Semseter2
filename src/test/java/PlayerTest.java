@@ -12,7 +12,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void testAddScoreMultipleTimes() {
+    public void testAddScore_MultipleTimes() {
         Player p = new Player("multi", 0001,0);
         p.addScore(10);
         p.addScore(15);
@@ -29,7 +29,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void testCompareToEqualScores() {
+    public void testCompareTo_EqualScores() {
         Player p1 = new Player("p1", 0001,0);
         Player p2 = new Player("p2", 0002,0);
         p1.addScore(20);

@@ -15,7 +15,7 @@ public class SoloTournamentTest {
     }
 
     @Test
-    public void testRegisterMultiplePlayers() {
+    public void testRegister_MultiplePlayers() {
         SoloTournament tournament = new SoloTournament("Solo Clash");
         tournament.registerPlayer(new Player("A", 0001,0));
         tournament.registerPlayer(new Player("B", 0002,0));
@@ -32,7 +32,7 @@ public class SoloTournamentTest {
     }
 
     @Test
-    public void testPlayMatchScoreChange() {
+    public void testPlayMatch_ScoreChange() {
         SoloTournament tournament = new SoloTournament("Solo Arena");
         Player p1 = new Player("One", 0001,0);
         Player p2 = new Player("Two", 0002,0);
@@ -42,7 +42,7 @@ public class SoloTournamentTest {
     }
 
     @Test
-    public void testPlayMatchNoNegativeScore() {
+    public void testPlayMatch_NoNegativeScore() {
         SoloTournament tournament = new SoloTournament("Safe Match");
         Player p1 = new Player("Safe1", 0001,0);
         Player p2 = new Player("Safe2", 0002,0);

@@ -19,7 +19,7 @@ public class TeamTournamentTest {
     }
 
     @Test
-    public void testRegisterMultipleTeams() {
+    public void testRegister_MultipleTeams() {
         TeamTournament tt = new TeamTournament("4v4 Cup");
         List<Player> team1 = Arrays.asList(new Player("A1", 0001,0), new Player("A2", 0002,0));
         List<Player> team2 = Arrays.asList(new Player("B1", 0003,0), new Player("B2", 0004,0));
@@ -39,7 +39,7 @@ public class TeamTournamentTest {
     }
 
     @Test
-    public void testPlayMatchPointsAdded() {
+    public void testPlayMatch_PointsAdded() {
         TeamTournament tt = new TeamTournament("Battle");
         Player cap1 = new Player("Leader1", 0001,0);
         Player cap2 = new Player("Leader2", 0002,0);
