@@ -19,6 +19,16 @@ public class TeamTournamentTest {
     }
 
     @Test
+    public void testRegisterMultipleTeams() {
+        TeamTournament tt = new TeamTournament("4v4 Cup");
+        List<Player> team1 = Arrays.asList(new Player("A1", 0001,0), new Player("A2", 0002,0));
+        List<Player> team2 = Arrays.asList(new Player("B1", 0003,0), new Player("B2", 0004,0));
+        tt.registerTeam(team1);
+        tt.registerTeam(team2);
+        assertEquals(2, tt.getTeams().size());
+    }
+
+    @Test
     public void testPlayMatch() {
         TeamTournament tt = new TeamTournament("Tag Team");
         Player leader1 = new Player("Team1Leader", 01,0);
@@ -26,5 +36,15 @@ public class TeamTournamentTest {
         tt.playMatch(leader1, leader2);
         assertEquals(5, leader1.getScore());
         assertEquals(5, leader2.getScore());
+    }
+
+    @Test
+    public void testPlayMatchPointsAdded() {
+        TeamTournament tt = new TeamTournament("Battle");
+        Player cap1 = new Player("Leader1", 0001,0);
+        Player cap2 = new Player("Leader2", 0002,0);
+        tt.playMatch(cap1, cap2);
+        assertEquals(5, cap1.getScore());
+        assertEquals(5, cap2.getScore());
     }
 }
