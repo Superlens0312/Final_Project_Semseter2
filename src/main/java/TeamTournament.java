@@ -14,7 +14,9 @@ public class TeamTournament extends Tournament implements Playable {
      * @param team the player being registered
      */
     public void registerTeam(List<Player> team) {
-        teams.add(team);
+        if (team != null) {
+            teams.add(team);
+        }
     }
 
     /**
@@ -24,7 +26,11 @@ public class TeamTournament extends Tournament implements Playable {
      */
     @Override
     public void playMatch(Player p1, Player p2) {
+        if (p1 != null) p1.addScore(10);
+        if (p2 != null) p2.addScore(0);
+        assert p1 != null;
         p1.addScore(5);
+        assert p2 != null;
         p2.addScore(5);
     }
 

@@ -1,12 +1,13 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class TournamentManagerTest {
     @Test
     void testAddUser() {
         TournamentManager manager = new TournamentManager();
-        Player player = new Player("TestPlayer", 0001,0);
+        Player player = new Player("TestPlayer", 0001);
         manager.addUser(player);
         assertEquals(1, manager.getUsers().size());
         assertEquals("TestPlayer", manager.getUsers().get(0).getUsername());
@@ -15,8 +16,8 @@ public class TournamentManagerTest {
     @Test
     public void testAddMultipleUsers() {
         TournamentManager manager = new TournamentManager();
-        manager.addUser(new Player("A", 0001,0));
-        manager.addUser(new Player("B", 0002,0));
+        manager.addUser(new Player("A", 0001));
+        manager.addUser(new Player("B", 0002));
         assertEquals(2, manager.getUsers().size());
     }
 
@@ -42,5 +43,21 @@ public class TournamentManagerTest {
         TournamentManager manager = new TournamentManager();
         manager.addTournament(new SoloTournament("Battle Royal"));
         manager.listTournaments(); // Output only
+    }
+
+    @Test
+    public void testAddNullUser() {
+        TournamentManager manager = new TournamentManager();
+        manager.addUser(null);
+        assertEquals(1, manager.getUsers().size());
+        assertNull(manager.getUsers().get(0));
+    }
+
+    @Test
+    public void testAddNullTournament() {
+        TournamentManager manager = new TournamentManager();
+        manager.addTournament(null);
+        assertEquals(1, manager.getTournaments().size());
+        assertNull(manager.getTournaments().get(0));
     }
 }

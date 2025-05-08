@@ -15,7 +15,9 @@ public class TournamentManager {
      * @param user the user that will be added
      */
     public void addUser(User user) {
-        users.add(user);
+        if (user != null) {
+            users.add(user);
+        }
     }
 
     /**
@@ -23,7 +25,9 @@ public class TournamentManager {
      * @param tournament the tournament that will be added
      */
     public void addTournament(Tournament tournament) {
-        tournaments.add(tournament);
+        if (tournament != null) {
+            tournaments.add(tournament);
+        }
     }
 
     /**

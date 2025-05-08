@@ -1,14 +1,14 @@
 public class Player extends User implements Comparable<Player> {
     private int score;
 
-    public Player(String username, int id, int score) {
+    public Player(String username, int id) {
         super(username, id);
         this.score = 0;
     }
 
     /**
      * Increases te player's score
-     * @param points
+     * @param points score to be added
      */
     public void addScore(int points) {
         this.score += points;
@@ -26,6 +26,8 @@ public class Player extends User implements Comparable<Player> {
      */
     @Override
     public int compareTo(Player other) {
+        if (other == null) return -1;
+        if (this.score == other.score) return 0;
         return  Integer.compare(other.score, this.score);
     }
 

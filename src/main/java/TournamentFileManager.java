@@ -2,12 +2,16 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TournamnetFileManager {
+public class TournamentFileManager {
     /**
      * Saves players to file.
      * @param players list of players
      */
     public void savePlayers(List<Player> players) {
+        if (players == null || players.isEmpty()) {
+            System.out.println("No players to save.");
+            return;
+        }
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("players.txt"))) {
             for (Player p : players) {
                 writer.write(p.getUsername() + "," + p.getId() + "," + p.getScore());
@@ -29,7 +33,7 @@ public class TournamnetFileManager {
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length == 3) {
-                    Player p = new Player(parts[0], Integer.parseInt(parts[1]),Integer.parseInt(parts[2]));
+                    Player p = new Player(parts[0], Integer.parseInt(parts[1]));
                     p.addScore(Integer.parseInt(parts[2]));
                     players.add(p);
                 }
@@ -45,6 +49,10 @@ public class TournamnetFileManager {
      * @param tournaments list of tournaments
      */
     public void saveTournaments(List<Tournament> tournaments) {
+        if (tournaments == null || tournaments.isEmpty()) {
+            System.out.println("No players to save.");
+            return;
+        }
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("tournaments.txt"))) {
             for (Tournament t : tournaments) {
                 writer.write(t.getClass().getSimpleName() + "," + t.name);

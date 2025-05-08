@@ -29,4 +29,31 @@ public class OrganizerTest {
         Organizer o2 = new Organizer("Bob", 0002);
         assertNotEquals(o1.getId(), o2.getId());
     }
+
+    @Test
+    public void testNullUsername() {
+        String Username  = String.valueOf(null);
+        Organizer organizer = new Organizer(Username, 0001);
+        assertNull(organizer.getUsername());
+    }
+
+    @Test
+    public void testNullId() {
+        int id  = Integer.parseInt(null);
+        Organizer organizer = new Organizer("Tester", id);
+        assertNull(organizer.getId());
+    }
+
+    @Test
+    public void testEmptyUsername() {
+        Organizer organizer = new Organizer("", 0002);
+        assertEquals("", organizer.getUsername());
+    }
+
+    @Test
+    public void testEmptyId() {
+        int id  = Integer.parseInt("");
+        Organizer organizer = new Organizer("Tester", id);
+        assertEquals("", organizer.getId());
+    }
 }

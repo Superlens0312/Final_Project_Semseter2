@@ -14,20 +14,26 @@ public class SoloTournament extends Tournament implements Playable {
      * @param player the player being registered
      */
     public void registerPlayer(Player player) {
-        participants.add(player);
+        if (player != null) {
+            participants.add(player);
+        }
     }
 
     /**
-     * Playes a match between two players
+     * Players a match between two players
      * @param p1 The first player
      * @param p2 The second player
      */
     @Override
     public void playMatch(Player p1, Player p2) {
+        if (p1 != null) p1.addScore(10);
+        if (p2 != null) p2.addScore(0);
         int winner = (int) (Math.random() * 2);
         if (winner == 0) {
+            assert p1 != null;
             p1.addScore(10);
         } else {
+            assert p2 != null;
             p2.addScore(10);
         }
     }

@@ -9,9 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TournamentFileManagerTest {
     @Test
     public void testSaveAndLoadPlayers() {
-        TournamnetFileManager tfm = new TournamnetFileManager();
+        TournamentFileManager tfm = new TournamentFileManager();
         List<Player> players = new ArrayList<>();
-        players.add(new Player("Alice", 01,0));
+        players.add(new Player("Alice", 01));
         players.get(0).addScore(15);
         tfm.savePlayers(players);
 
@@ -25,7 +25,7 @@ public class TournamentFileManagerTest {
 
     @Test
     public void testSaveTournaments() {
-        TournamnetFileManager tfm = new TournamnetFileManager();
+        TournamentFileManager tfm = new TournamentFileManager();
         List<Tournament> tournaments = new ArrayList<>();
         tournaments.add(new SoloTournament("Championship"));
         tfm.saveTournaments(tournaments);
@@ -38,15 +38,39 @@ public class TournamentFileManagerTest {
     public void testLoadPlayers_FromMissingFile() {
         File f = new File("players.txt");
         f.delete(); // ensure it doesn't exist
-        TournamnetFileManager tfm = new TournamnetFileManager();
+        TournamentFileManager tfm = new TournamentFileManager();
         List<Player> loaded = tfm.loadPlayers();
         assertTrue(loaded.isEmpty());
     }
 
     @Test
     public void testLoadTournaments_Default() {
-        TournamnetFileManager tfm = new TournamnetFileManager();
+        TournamentFileManager tfm = new TournamentFileManager();
         List<Tournament> tournaments = tfm.loadTournaments();
         assertTrue(tournaments.isEmpty()); // placeholder logic
+    }
+
+    @Test
+    public void testSaveNullPlayersList() {
+        TournamentFileManager tfm = new TournamentFileManager();
+        assertDoesNotThrow(() -> tfm.savePlayers(null));
+    }
+
+    @Test
+    public void testSaveEmptyPlayersList() {
+        TournamentFileManager tfm = new TournamentFileManager();
+        assertDoesNotThrow(() -> tfm.savePlayers(new ArrayList<>()));
+    }
+
+    @Test
+    public void testSaveNullTournamentsList() {
+        TournamentFileManager tfm = new TournamentFileManager();
+        assertDoesNotThrow(() -> tfm.saveTournaments(null));
+    }
+
+    @Test
+    public void testSaveEmptyTournamentsList() {
+        TournamentFileManager tfm = new TournamentFileManager();
+        assertDoesNotThrow(() -> tfm.saveTournaments(new ArrayList<>()));
     }
 }
