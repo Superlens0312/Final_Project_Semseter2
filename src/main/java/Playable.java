@@ -1,7 +1,7 @@
 public interface Playable {
 
     /**
-     * Playes a match between two players
+     * Plays a match between two players
      * @param p1 The first player
      * @param p2 The second player
      */

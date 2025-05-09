@@ -85,7 +85,31 @@ public class TournamentFileManager {
      */
     public List<Tournament> loadTournaments() {
         List<Tournament> tournaments = new ArrayList<>();
-        // Placeholder: full deserialization would require type and structure
+        try (BufferedReader reader = new BufferedReader(new FileReader("tournaments.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 2) {
+                    String type = parts[0].trim();
+                    String name = parts[1].trim();
+                    Tournament t = null;
+                    if ("SoloTournament".equalsIgnoreCase(type)) {
+                        t = new SoloTournament(name);
+                    } else if ("TeamTournament".equalsIgnoreCase(type)) {
+                        t = new TeamTournament(name);
+                    }
+                    if (t != null) {
+                        tournaments.add(t);
+                    } else {
+                        System.out.println("Unknown tournament type: " + type);
+                    }
+                } else {
+                    System.out.println("Invalid tournament entry: " + line);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("No tournaments file found or error reading file.");
+        }
         return tournaments;
     }
 }
