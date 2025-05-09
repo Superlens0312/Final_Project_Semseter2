@@ -20,7 +20,7 @@ public class TournamentFileManagerTest {
         assertEquals("Alice", loaded.get(0).getUsername());
         assertEquals(15, loaded.get(0).getScore());
 
-        new File("src/test/java/Player.csv").delete(); // cleanup
+        new File("player.txt").delete(); // cleanup
     }
 
     @Test
@@ -30,10 +30,10 @@ public class TournamentFileManagerTest {
         tournaments.add(new SoloTournament("Championship"));
         tfm.saveTournaments(tournaments);
 
-        File file = new File("src/test/java/Tournament.csv");
+        File file = new File("src/test/java/TournamentSave.csv");  // Match code path
         assertTrue(file.exists());
-        file.delete(); // cleanup
     }
+
     @Test
     public void testLoadPlayers_FromMissingFile() {
         File f = new File("src/test/java/Player.csv");

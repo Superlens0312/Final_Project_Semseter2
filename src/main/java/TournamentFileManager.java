@@ -12,7 +12,7 @@ public class TournamentFileManager {
             System.out.println("No players to save.");
             return;
         }
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("players.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/test/java/Player.csv"))) {
             for (Player p : players) {
                 if (p != null) {
                     writer.write(p.getUsername() + "," + p.getId() + "," + p.getScore());
@@ -30,7 +30,7 @@ public class TournamentFileManager {
      */
     public List<Player> loadPlayers() {
         List<Player> players = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("players.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/test/java/Player.csv"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
@@ -67,7 +67,7 @@ public class TournamentFileManager {
             System.out.println("No players to save.");
             return;
         }
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("tournaments.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/test/java/TournamentSave.csv"))) {
             for (Tournament t : tournaments) {
                 if (t != null) {
                     writer.write(t.name);
@@ -85,7 +85,7 @@ public class TournamentFileManager {
      */
     public List<Tournament> loadTournaments() {
         List<Tournament> tournaments = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("tournaments.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/test/java/Tournamanet.csv"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
