@@ -1,7 +1,7 @@
 public class Organizer extends User{
 
-    public Organizer(String username, int id) {
-        super(username, id);
+    public Organizer(String username, Integer id) {
+        super((username != null) ? username : "", (id != null) ? id : 0);
     }
 
     /**

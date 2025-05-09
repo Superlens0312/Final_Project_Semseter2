@@ -1,8 +1,8 @@
 public class Player extends User implements Comparable<Player> {
     private int score;
 
-    public Player(String username, int id) {
-        super(username, id);
+    public Player(String username, Integer id) {
+        super((username != null) ? username : "", (id != null) ? id : 0);
         this.score = 0;
     }
 
@@ -10,8 +10,16 @@ public class Player extends User implements Comparable<Player> {
      * Increases te player's score
      * @param points score to be added
      */
-    public void addScore(int points) {
-        this.score += points;
+    public void addScore(Integer points) {
+        if (points != null) {
+            this.score += points;
+            if (this.score < 0) {
+                System.out.println("Warning: Negative total score detected, resetting to 0.");
+                this.score = 0;
+            }
+        } else {
+            System.out.println("Null points provided, no score change.");
+        }
     }
 
     @Override
@@ -34,5 +42,4 @@ public class Player extends User implements Comparable<Player> {
     public int getScore() {
         return score;
     }
-
 }

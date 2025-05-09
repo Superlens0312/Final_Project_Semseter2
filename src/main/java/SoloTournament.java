@@ -16,7 +16,10 @@ public class SoloTournament extends Tournament implements Playable {
     public void registerPlayer(Player player) {
         if (player != null) {
             participants.add(player);
+        } else {
+            System.out.println("Null player not registered.");
         }
+
     }
 
     /**
@@ -26,15 +29,22 @@ public class SoloTournament extends Tournament implements Playable {
      */
     @Override
     public void playMatch(Player p1, Player p2) {
-        if (p1 != null) p1.addScore(10);
-        if (p2 != null) p2.addScore(0);
+        if (p1 != null) p1.addScore(5);
+        if (p2 != null) p2.addScore(5);
+
         int winner = (int) (Math.random() * 2);
         if (winner == 0) {
-            assert p1 != null;
-            p1.addScore(10);
-        } else {
-            assert p2 != null;
-            p2.addScore(10);
+            if (p1 != null) {
+                p1.addScore(5);
+            } else {
+                System.out.println("Player 1 is null, skipping bonus points.");
+            }
+
+            if (p2 != null) {
+                p2.addScore(5);
+            } else {
+                System.out.println("Player 2 is null, skipping bonus points.");
+            }
         }
     }
 

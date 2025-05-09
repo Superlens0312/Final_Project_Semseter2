@@ -16,6 +16,8 @@ public class TeamTournament extends Tournament implements Playable {
     public void registerTeam(List<Player> team) {
         if (team != null) {
             teams.add(team);
+        } else {
+            System.out.println("Null team not registered.");
         }
     }
 
@@ -28,10 +30,18 @@ public class TeamTournament extends Tournament implements Playable {
     public void playMatch(Player p1, Player p2) {
         if (p1 != null) p1.addScore(10);
         if (p2 != null) p2.addScore(0);
-        assert p1 != null;
-        p1.addScore(5);
-        assert p2 != null;
-        p2.addScore(5);
+
+        if (p1 != null) {
+            p1.addScore(5);
+        } else {
+            System.out.println("Player 1 is null, skipping bonus points.");
+        }
+
+        if (p2 != null) {
+            p2.addScore(5);
+        } else {
+            System.out.println("Player 2 is null, skipping bonus points.");
+        }
     }
 
     @Override

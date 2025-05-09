@@ -17,6 +17,8 @@ public class TournamentManager {
     public void addUser(User user) {
         if (user != null) {
             users.add(user);
+        } else {
+            System.out.println("Null user not added.");
         }
     }
 
@@ -27,6 +29,8 @@ public class TournamentManager {
     public void addTournament(Tournament tournament) {
         if (tournament != null) {
             tournaments.add(tournament);
+        } else {
+            System.out.println("Null tournament not added.");
         }
     }
 
@@ -35,7 +39,9 @@ public class TournamentManager {
      */
     public void listTournaments() {
         for (Tournament t : tournaments) {
-            t.displayInfo();
+            if (t != null) {
+                System.out.println(t.name);
+            }
         }
     }
 

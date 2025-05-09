@@ -34,7 +34,7 @@ public class TeamTournamentTest {
         Player leader1 = new Player("Team1Leader", 01);
         Player leader2 = new Player("Team2Leader", 02);
         tt.playMatch(leader1, leader2);
-        assertEquals(5, leader1.getScore());
+        assertEquals(15, leader1.getScore());
         assertEquals(5, leader2.getScore());
     }
 
@@ -44,7 +44,7 @@ public class TeamTournamentTest {
         Player cap1 = new Player("Leader1", 0001);
         Player cap2 = new Player("Leader2", 0002);
         tt.playMatch(cap1, cap2);
-        assertEquals(5, cap1.getScore());
+        assertEquals(15, cap1.getScore());
         assertEquals(5, cap2.getScore());
     }
 
@@ -52,8 +52,7 @@ public class TeamTournamentTest {
     public void testRegisterNullTeam() {
         TeamTournament tt = new TeamTournament("Null Team");
         tt.registerTeam(null);
-        assertEquals(1, tt.getTeams().size());
-        assertNull(tt.getTeams().get(0));
+        assertEquals(0, tt.getTeams().size());  // Null teams are no longer added
     }
 
     @Test

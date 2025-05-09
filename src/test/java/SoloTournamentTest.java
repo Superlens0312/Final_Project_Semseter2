@@ -27,7 +27,7 @@ public class SoloTournamentTest {
         Player p1 = new Player("One", 01);
         Player p2 = new Player("Two", 02);
         tournament.playMatch(p1, p2);
-        assertTrue(p1.getScore() == 10 || p2.getScore() == 10);
+        assertTrue(p1.getScore() == 15 || p2.getScore() == 5);
     }
 
     @Test
@@ -37,7 +37,7 @@ public class SoloTournamentTest {
         Player p2 = new Player("Two", 0002);
         tournament.playMatch(p1, p2);
         int totalScore = p1.getScore() + p2.getScore();
-        assertEquals(10, totalScore);
+        assertEquals(20, totalScore);
     }
 
     @Test
@@ -53,8 +53,7 @@ public class SoloTournamentTest {
     public void testRegisterNullPlayer() {
         SoloTournament tournament = new SoloTournament("Null Test");
         tournament.registerPlayer(null);
-        assertEquals(1, tournament.getParticipants().size());
-        assertNull(tournament.getParticipants().get(0));
+        assertEquals(0, tournament.getParticipants().size());  // Null players are not added
     }
 
     @Test

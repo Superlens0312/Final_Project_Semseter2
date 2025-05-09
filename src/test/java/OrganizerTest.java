@@ -32,28 +32,25 @@ public class OrganizerTest {
 
     @Test
     public void testNullUsername() {
-        String Username  = String.valueOf(null);
-        Organizer organizer = new Organizer(Username, 0001);
-        assertNull(organizer.getUsername());
+        Organizer organizer = new Organizer(null, 100);
+        assertEquals("", organizer.getUsername());
     }
 
     @Test
     public void testNullId() {
-        int id  = Integer.parseInt(null);
-        Organizer organizer = new Organizer("Tester", id);
-        assertNull(organizer.getId());
+        Organizer organizer = new Organizer("Tester", null);
+        assertEquals(0, organizer.getId());
     }
 
     @Test
     public void testEmptyUsername() {
-        Organizer organizer = new Organizer("", 0002);
+        Organizer organizer = new Organizer("", 200);
         assertEquals("", organizer.getUsername());
     }
 
     @Test
     public void testEmptyId() {
-        int id  = Integer.parseInt("");
-        Organizer organizer = new Organizer("Tester", id);
-        assertEquals("", organizer.getId());
+        Organizer organizer = new Organizer("Tester", 0);
+        assertEquals(0, organizer.getId());
     }
 }

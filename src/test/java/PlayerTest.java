@@ -37,27 +37,32 @@ public class PlayerTest {
     }
     @Test
     public void testNullUsername() {
-        Player p = new Player(null, 001);
-        assertNull(p.getUsername());
+        Player p = new Player(null, 123);
+        assertEquals("", p.getUsername());
     }
 
     @Test
     public void testNullId() {
-        int id  = Integer.parseInt(null);
-        Player p = new Player("Tester", id);
-        assertNull(p.getId());
+        Player p = new Player("Tester", null);
+        assertEquals(0, p.getId());
     }
 
     @Test
     public void testEmptyUsername() {
-        Player p = new Player("", 0001);
+        Player p = new Player("", 123);
         assertEquals("", p.getUsername());
     }
 
     @Test
     public void testEmptyId() {
-         int id  = Integer.parseInt("");
-        Player p = new Player("Tester", id);
-        assertEquals("", p.getId());
+        Player p = new Player("Tester", 0);
+        assertEquals(0, p.getId());
+    }
+
+    @Test
+    public void testAddNegativeScore() {
+        Player p = new Player("NegTester", 004);
+        p.addScore(-5);  // Should reset to 0 if negative total (as per our fix)
+        assertEquals(0, p.getScore());
     }
 }

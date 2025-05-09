@@ -49,15 +49,13 @@ public class TournamentManagerTest {
     public void testAddNullUser() {
         TournamentManager manager = new TournamentManager();
         manager.addUser(null);
-        assertEquals(1, manager.getUsers().size());
-        assertNull(manager.getUsers().get(0));
+        assertEquals(0, manager.getUsers().size());  // Now null users are not added
     }
 
     @Test
     public void testAddNullTournament() {
         TournamentManager manager = new TournamentManager();
         manager.addTournament(null);
-        assertEquals(1, manager.getTournaments().size());
-        assertNull(manager.getTournaments().get(0));
+        assertEquals(0, manager.getTournaments().size());  // Now null tournaments are not added
     }
 }

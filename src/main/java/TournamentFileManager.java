@@ -14,8 +14,10 @@ public class TournamentFileManager {
         }
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("players.txt"))) {
             for (Player p : players) {
-                writer.write(p.getUsername() + "," + p.getId() + "," + p.getScore());
-                writer.newLine();
+                if (p != null) {
+                    writer.write(p.getUsername() + "," + p.getId() + "," + p.getScore());
+                    writer.newLine();
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -32,14 +34,26 @@ public class TournamentFileManager {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length == 3) {
-                    Player p = new Player(parts[0], Integer.parseInt(parts[1]));
-                    p.addScore(Integer.parseInt(parts[2]));
+                if (parts.length >= 2) {  // username + id must exist
+                    String username = (parts[0] != null) ? parts[0].trim() : "";
+                    Integer id = Integer.valueOf((parts[1] != null) ? parts[1].trim() : "");
+                    Player p = new Player(username, id);
+                    if (parts.length >= 3 && parts[2] != null && !parts[2].isBlank() && !parts[2].trim().equalsIgnoreCase("null")) {
+                        try {
+                            p.addScore(Integer.parseInt(parts[2].trim()));
+                        } catch (NumberFormatException e) {
+                            System.out.println("Invalid score format for: " + username + ", setting score to 0");
+                        }
+                    } else {
+                        System.out.println("Missing or blank score for: " + username + ", setting score to 0");
+                    }
                     players.add(p);
+                } else {
+                    System.out.println("Invalid player entry skipped: " + line);
                 }
             }
-        } catch (IOException | NumberFormatException e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("No players file found or error reading file.");
         }
         return players;
     }
@@ -55,8 +69,10 @@ public class TournamentFileManager {
         }
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("tournaments.txt"))) {
             for (Tournament t : tournaments) {
-                writer.write(t.getClass().getSimpleName() + "," + t.name);
-                writer.newLine();
+                if (t != null) {
+                    writer.write(t.name);
+                    writer.newLine();
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();

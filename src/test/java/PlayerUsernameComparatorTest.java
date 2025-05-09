@@ -10,16 +10,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class PlayerUsernameComparatorTest {
     @Test
     public void testComparatorSort() {
-        Player p1 = new Player("Zelda", 0001);
-        Player p2 = new Player("Anna", 0002);
-        Player p3 = new Player("Bob", 0003);
+        Player p1 = new Player("Naruto", 0001);
+        Player p2 = new Player("Friren", 0002);
+        Player p3 = new Player("Thorfin", 0003);
 
         List<Player> players = Arrays.asList(p1, p2, p3);
-        Collections.sort(players);
+        Collections.sort(players, new PlayerUsernameComparator());
 
-        assertEquals("Anna", players.get(0).getUsername());
-        assertEquals("Bob", players.get(1).getUsername());
-        assertEquals("Zelda", players.get(2).getUsername());
+        assertEquals("Friren", players.get(0).getUsername());
+        assertEquals("Naruto", players.get(1).getUsername());
+        assertEquals("Thorfin", players.get(2).getUsername());
     }
 
     @Test
