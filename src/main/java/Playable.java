@@ -1,5 +1,4 @@
 public interface Playable {
-
     /**
      * Plays a match between two players
      * @param p1 The first player
