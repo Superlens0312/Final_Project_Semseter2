@@ -20,7 +20,7 @@ public class TournamentFileManagerTest {
         assertEquals("Alice", loaded.get(0).getUsername());
         assertEquals(15, loaded.get(0).getScore());
 
-        new File("players.txt").delete(); // cleanup
+        new File("src/test/java/Player.csv").delete(); // cleanup
     }
 
     @Test
@@ -30,13 +30,13 @@ public class TournamentFileManagerTest {
         tournaments.add(new SoloTournament("Championship"));
         tfm.saveTournaments(tournaments);
 
-        File file = new File("tournaments.txt");
+        File file = new File("src/test/java/Tournament.csv");
         assertTrue(file.exists());
         file.delete(); // cleanup
     }
     @Test
     public void testLoadPlayers_FromMissingFile() {
-        File f = new File("players.txt");
+        File f = new File("src/test/java/Player.csv");
         f.delete(); // ensure it doesn't exist
         TournamentFileManager tfm = new TournamentFileManager();
         List<Player> loaded = tfm.loadPlayers();
